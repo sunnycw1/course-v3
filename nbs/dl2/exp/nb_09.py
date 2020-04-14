@@ -68,6 +68,7 @@ l2_reg._defaults = dict(wd=0.)
 
 def maybe_update(os, dest, f):
     for o in os:
+#         print(f(o).items())
         for k,v in f(o).items():
             if k not in dest: dest[k] = v
 

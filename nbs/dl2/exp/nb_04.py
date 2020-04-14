@@ -110,7 +110,7 @@ class Runner():
         self.stop=False
 
     def fit(self, epochs, learn):
-        self.epochs,self.learn,self.loss = epochs,learn,tensor(0.)
+        self.epochs,self.learn = epochs,learn
 
         try:
             for cb in self.cbs: cb.set_runner(self)
@@ -134,7 +134,8 @@ class Runner():
         return False
 
 class AvgStats():
-    def __init__(self, metrics, in_train): self.metrics,self.in_train = listify(metrics),in_train
+    def __init__(self, metrics, in_train):
+        self.metrics,self.in_train = listify(metrics),in_train
 
     def reset(self):
         self.tot_loss,self.count = 0.,0
